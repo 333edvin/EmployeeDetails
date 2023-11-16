@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="" style="background:url(./colorful-2174045_1280.png) no-repeat; background-size: cover;">
+
+    <nav class="container-fluid bg-white">
+        <div class="contents d-flex justify-content-between p-3">
+            
+            <h2 id="head" class="text-uppercase px-5" ><i class="fa-regular fa-user"></i>>Welcome User</h2>
+            <button class="btn btn-danger " onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row p-4">
+            <div class="col-lg-6 rounded pb-2 " style="background-color: rgba(0, 0, 0, 0.295);">
+                <h2 class="p-2 text-white text-uppercase">Employee Details</h2>
+                <div class="form">
+                    <input type="text" class="form-control my-3" placeholder="Employee ID" id="id">
+                    <input type="text" class="form-control my-3" placeholder="Employee Name" id="name">
+                    <input type="text" class="form-control my-3" placeholder="Employee Address" id="address">
+                    <input type="text" class="form-control my-3" placeholder="Employee Designation" id="desig">
+                    <input type="text" class="form-control my-3" placeholder="Employee Experience" id="exp">
+                    <input type="text" class="form-control my-3" placeholder="Employee Salary" id="salary">
+                    <button class="btn btn-primary" onclick="addEmp()">Add Employee</button>
+                </div>
+            </div>
+            <div class="col-lg-6  "> 
+                <div class="d-flex  gap-2 rounded px-2 pb-2" style="background-color: rgba(0, 0, 0, 0.295);">
+
+                    <input type="text" class="form-control mt-5" placeholder="search" id="searchBar" >
+                    <button class="btn btn-primary mt-5 " onclick="search()" type="submit">Search</button>
+                </div>
+
+                <p class="" id="search-result"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="adminpanel.js">
+       
+
+
+    </script>
+</body>
+</html>
