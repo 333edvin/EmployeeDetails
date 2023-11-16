@@ -3,63 +3,65 @@
  head.innerHTML = `<i class="fa-regular fa-user "></i>Welcome ${user_name}`
  function addEmp(){
 
-     //getting all data
-     let Emp_ID = document.getElementById('id').value
-     let Emp_Name = document.getElementById('name').value
-     let Emp_Add = document.getElementById('address').value
-     let Emp_Desig = document.getElementById('desig').value
-     let Emp_Exp = document.getElementById('exp').value
-     let Emp_Salary = document.getElementById('salary').value
 
-     if( Emp_ID == ''|| Emp_Name == '' || Emp_Add == '' || Emp_Desig == '' || Emp_Exp == '' || Emp_Salary == ''){
-         alert('Please Fill all the Fields')
-     }else{
-         let empData = {
-             Employee_Id : Emp_ID,
-             Employee_Name : Emp_Name,
-             Employee_Add : Emp_Add,
-             Employee_Des : Emp_Desig,
-             Employee_Exp : Emp_Exp,
-             Employee_Sal : Emp_Salary
-         }
-         // console.log(empData)
-         window.localStorage.setItem("EmployeeData",JSON.stringify(empData))
-         alert("Employee Details added successfully.")
+    const employee = {
+        id:empid.value,
+        name:empname.value,
+        address:empaddress.value,
+        designation:empdesig.value,
+        experience:empexp.value,
+        salary:empsalary.value,
 
+    }
+ 
+    if(employee.id==''||employee.name==''||employee.address==''|| employee.designation==''||employee.experience==''||employee.salary==''){
+        alert('enter all fields')
+    }else{
 
-     }
+        if(employee.id in localStorage){
+            alert('Employee already exist')
+        }else{
+            
+            window.localStorage.setItem(employee.id,JSON.stringify(employee))
+            alert("Employee Details added successfully.")
+   
+   
+        }
+    }
  }
 
 
  //search function
 
  function search(){
-     const result = document.getElementById('search-result')
-     result.innerHTML = ''
-     let searchBar = document.getElementById('searchBar').value
-     let empdata = JSON.parse(localStorage.getItem('EmployeeData'))
-
-     // console.log(empdata)
-     if(searchBar == ""){
-         alert("Enter Employee Id.")
-     }else if(searchBar == empdata.Employee_Id){
-
-         result.innerHTML = `
-         <div class="container  mt-1  rounded" style="background-color: rgba(0, 0, 0, 0.295);>
- <h4 class="text-center text-white p-3">Employee Details</h4>
- <ul type="none" class="form-control my-2">
-     <li class="form-control my-2">ID : ${empdata.Employee_Id}</li>    
-     <li class="form-control my-2">Name : ${empdata.Employee_Name}</li>    
-     <li class="form-control my-2">Address : ${empdata.Employee_Add}</li>    
-     <li class="form-control my-2">Designation : ${empdata.Employee_Des}</li>    
-     <li class="form-control my-2">Experience : ${empdata.Employee_Exp}</li>    
-     <li class="form-control my-2">Salary : ${empdata.Employee_Sal}</li>    
- </ul>
- </div>
-         `
-     }else{
-         alert("No employee found")
-     }
+    const key = emp.value
+    if(key in localStorage){
+        employee = JSON.parse(localStorage.getItem(key))
+        console.log(employee)
+        result.innerHTML =  `
+        <div class="card w-100 mt-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Employee Details</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Employee Id : ${employee.id}</li>
+    <li class="list-group-item">Employee Name : ${employee.name}</li>
+    <li class="list-group-item">Employee Address : ${employee.address}</li>
+    <li class="list-group-item">Employee Designation : ${employee.designation}</li>
+    <li class="list-group-item">Employee Experience : ${employee.experience}</li>
+    <li class="list-group-item">Employee Salary : ${employee.salary}</li>
+  </ul>
+  
+</div>
+`
+    }else{
+        result.innerHTML = `
+        <div class="text-center p-2">
+        <h4 class="text-black"><i class="fa-solid fa-circle-xmark m-2" style="color: #ff0000;"></i>ID dosn't exist</h4>
+        <img src="./notfound.jpg" alt="" class="img-fluid" style="width: 60%; height: 20%;">
+    </div>    
+        `
+    }
 
  }
 

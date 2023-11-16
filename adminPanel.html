@@ -20,26 +20,27 @@
 
     <div class="container">
         <div class="row p-4">
-            <div class="col-lg-6 rounded pb-2 " style="background-color: rgba(0, 0, 0, 0.295);">
+            <div class="col-lg-6 rounded pb-2 mt-2" style="background-color: rgba(0, 0, 0, 0.295);">
                 <h2 class="p-2 text-white text-uppercase">Employee Details</h2>
                 <div class="form">
-                    <input type="text" class="form-control my-3" placeholder="Employee ID" id="id">
-                    <input type="text" class="form-control my-3" placeholder="Employee Name" id="name">
-                    <input type="text" class="form-control my-3" placeholder="Employee Address" id="address">
-                    <input type="text" class="form-control my-3" placeholder="Employee Designation" id="desig">
-                    <input type="text" class="form-control my-3" placeholder="Employee Experience" id="exp">
-                    <input type="text" class="form-control my-3" placeholder="Employee Salary" id="salary">
-                    <button class="btn btn-primary" onclick="addEmp()">Add Employee</button>
+                    <input type="text" class="form-control my-3" placeholder="Employee ID" id="empid">
+                    <input type="text" class="form-control my-3" placeholder="Employee Name" id="empname">
+                    <input type="text" class="form-control my-3" placeholder="Employee Address" id="empaddress">
+                    <input type="text" class="form-control my-3" placeholder="Employee Designation" id="empdesig">
+                    <input type="text" class="form-control my-3" placeholder="Employee Experience" id="empexp">
+                    <input type="text" class="form-control my-3" placeholder="Employee Salary" id="empsalary">
+                    <button class="btn btn-primary" onclick="addEmp()" type="button">Add Employee</button>
                 </div>
             </div>
             <div class="col-lg-6  "> 
-                <div class="d-flex  gap-2 rounded px-2 pb-2" style="background-color: rgba(0, 0, 0, 0.295);">
-
-                    <input type="text" class="form-control mt-5" placeholder="search" id="searchBar" >
+                <div class="d-flex  gap-2 rounded px-2 pt-3 pb-2 mt-2" style="background-color: rgba(0, 0, 0, 0.295);">
+                    <input type="text" class="form-control mt-5" placeholder="search" id="emp" >
                     <button class="btn btn-primary mt-5 " onclick="search()" type="submit">Search</button>
                 </div>
 
-                <p class="" id="search-result"></p>
+                <div id="result">
+
+                </div>
             </div>
         </div>
     </div>
